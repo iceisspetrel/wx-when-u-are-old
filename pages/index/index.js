@@ -1,3 +1,4 @@
+
 //index.js
 //获取应用实例
 const app = getApp()
@@ -15,7 +16,19 @@ Page({
       url: '../logs/logs'
     })
   },
+
+  playBgMusic () {
+    console.log(1111);
+    wx.playBackgroundAudio({
+      dataUrl: 'http://97.64.26.130:8990/media/bg.mp3',
+      complete () {
+        console.log(2222);
+      }
+    })
+  },
+
   onLoad: function () {
+    this.playBgMusic();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
